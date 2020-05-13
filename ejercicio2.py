@@ -172,15 +172,18 @@ def calcular():
 
         nombreEquipo=lis_nombre[i]
         puntosEquipo= lis_puntos[i]
-        puntosEquipo= ''.join(puntosEquipo)
-        puntosEquipo= int(puntosEquipo) # converting list into string
+        print(type(puntosEquipo))
+        #puntosEquipo= ''.join(puntosEquipo)
+        #puntosEquipo= int(puntosEquipo) # converting list into string
         ligaEquipo=lis_liga[i+1]
+        print(type(ligaEquipo))
+        print(ligaEquipo)
 
 
         #ID le ponemos NULL (ID, pedido,precio base,precio total,fecha)
-        query= 'INSERT INTO EMRT_puntos VALUES (NULL,?,?,?)'
-        parametros=(nombreEquipo,puntosEquipo,ligaEquipo)
-        run_query(query,parametros)
+        #query= 'INSERT INTO EMRT_puntos VALUES (NULL,?,?,?)'
+        #parametros=(nombreEquipo,puntosEquipo,ligaEquipo)
+        #run_query(query,parametros)
         # Contador del ciclo
         i=i+1 
 
@@ -266,13 +269,13 @@ print(tree["columns"]) """
 
 # BOTONES
 B_registrar=Button(ventana, text=" Registrar partidos",command=registrar).place(x=490, y=410)
-B_buscar=Button(ventana, text=" Buscar ", command=buscar).place(x=470, y=45)
+B_buscar=Button(ventana, text=" Buscar ", command=buscar).place(x=510, y=45)
 B_calcular=Button(ventana, text=" Calcular Posicion", command=calcular ).place(x=360, y=410)
 
 # ENTRIYS
 
 entrada = StringVar()
-codigo= Entry(ventana, textvariable=entrada,  width= 70).place(x=10, y=45)
+codigo= Entry(ventana, textvariable=entrada,  width= 58).place(x=10, y=45)
 #codigo.focus_set()  # cursor parpadeando
 entrada.set("Nombre de Equipo,Nombre Liga, Resultados Liga, Fecha Liga, todas *")
 
