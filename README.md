@@ -1,7 +1,7 @@
 # tkinter-sqlite
 Resolucion de un Examen final de  INSTITUTO TECNOLOGICO DE SOLEDAD ATLANTICO
 
-Esto es un parcial que le hice a un estudiante llamado Edwin Rubiano con la cedula 1140882562, con la materia de progracmacion del profesor LUIS EDUARDO LOBO PEDRAZA. Debido que esta persona me quedo mal en el pago hago publico el codigo de la solucion del parcial.
+Esto es un parcial que le hice a un estudiante llamado Edwin Rubiano con la cedula 1140882562 y el telefono +575021785, con la materia de progracmacion del profesor LUIS EDUARDO LOBO PEDRAZA. Debido que esta persona me quedo mal en el pago hago publico el codigo de la solucion del parcial.
 
 EJERCICIO 1.
 
