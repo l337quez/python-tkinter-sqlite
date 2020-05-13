@@ -15,6 +15,7 @@ def run_query(query,parametros=()):
         cursor=conn.cursor()
         resultado=cursor.execute(query, parametros)
         conn.commit()
+        print(resultado)
     return resultado
     
 
@@ -59,12 +60,13 @@ def registrar():
                 print (contador)
 
             if contador>=1:
-                #ID le ponemos NULL (ID, equipo1,goles1,equipo2,goles2,fecha,liga)
+                #al id le ponemos NULL (ID, equipo1,goles1,equipo2,goles2,fecha,liga)
                 query= 'INSERT INTO EMRT_partidos VALUES (NULL,?,?,?,?,?,?)'
                 parametros=(nom_e1,golequipo1,nom_e2,golequipo2,fecha,liga)
                 run_query(query,parametros)
             #contador
             contador=contador+1
+            print(contador)
     #print ("Read Line: %s" % (r))
     f.close() #cerramos el archivo
 
@@ -106,27 +108,31 @@ def calcular():
         #print(row[3])# nombre equipo
         #print(row[4])#goles
         #Hacemos un post
-        
+        #print(row[2])
+        #print(row[1])
         
         #2  la poscion de puntos su nombre de equipo esta en la misma posicion de nombres
         i=0
+        
         if row[2]> row[4]: #GANADORES
-            if row[1] in lis_nombre:
+            if row[1] in lis_nombre: #si existe el nombre
                 pos_nom=lis_nombre.index(row[1])
                 lis_puntos[pos_nom] = lis_puntos[pos_nom] + 3
                 #se agrega [nombre,liga]
-                lis_liga.append( row[1] ) #nombre
+                lis_nombre.append( row[1] ) #nombre
                 lis_liga.append( row[6] ) #liga
                 
             else: 
+                print("no existe el nombre")
                 lis_nombre.append(row[1]) #lista de ganadores
                 lis_puntos.append(3) #3 puntos
 
                 #se agrega [nombre,liga]
                 lis_liga.append( row[1] ) #nombre
                 lis_liga.append( row[6] ) #liga
+        
 
-        elif row[2]< row[4]: #GANADORES
+        """ elif row[2]< row[4]: #GANADORES
             if row[4] in lis_nombre:
                 pos_nom=lis_nombre.index(row[4])
                 lis_puntos[pos_nom] = lis_puntos[pos_nom] + 3
@@ -162,22 +168,25 @@ def calcular():
                 lis_nombre.append(row[3]) #lista de ganadores
                 lis_puntos.append(1) #3 puntos
                 lis_liga.append( row[3] )
-                lis_liga.append( row[6] )
+                lis_liga.append( row[6] ) """
 
         #print(lis_nombre)
         #print(lis_puntos)
         #print(lis_liga)
-        print(type(lis_nombre[i]))
-        print(lis_nombre[i])
+        #print(type(lis_nombre[i]))
+        #print(lis_nombre[i])
 
         nombreEquipo=lis_nombre[i]
         puntosEquipo= lis_puntos[i]
-        print(type(puntosEquipo))
+        print(nombreEquipo)
+        print(puntosEquipo)
+        print(lis_nombre)
+        #print(type(puntosEquipo))
         #puntosEquipo= ''.join(puntosEquipo)
         #puntosEquipo= int(puntosEquipo) # converting list into string
         ligaEquipo=lis_liga[i+1]
-        print(type(ligaEquipo))
-        print(ligaEquipo)
+        #print(type(ligaEquipo))
+        #print(ligaEquipo)
 
 
         #ID le ponemos NULL (ID, pedido,precio base,precio total,fecha)
